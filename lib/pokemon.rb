@@ -27,12 +27,21 @@ class Pokemon
      LIMIT 1
     SQL
   row = db.execute(sql)
+
   attribute = {
     :id => row[0][0] ,
     :name => row [0][1],
     :type => row [0][2]
   }
   Pokemon.new(attribute)
+
+  attribute = {}
+    attribute [:id] = row[0][0]
+    attribute [:name] = row [0][1]
+    attribute [:type] = row [0][2]
+    attribute [:db] = db
+  self.new(attribute)
+
   end
 
 end
